@@ -9,11 +9,11 @@ export const Header = () => {
       <img src={Logo} alt="Copo de café e nome do site" />
       <nav>
         <div>
-          <MapPin size={25} />
+          <MapPin weight="fill" size={25} />
           Porto Alegre, RS
         </div>
         <NavLink to="/checkout" title="cart">
-          <ShoppingCart size={25} />
+          <ShoppingCart weight="fill" size={25} />
         </NavLink>
       </nav>
     </HeaderContainer>

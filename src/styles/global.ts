@@ -14,10 +14,12 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
 	  font-size: 62.5%;
+    width: 75%;
+    margin: auto;
+    background: ${(props) => props.theme.background};
   }
 
   body {
-    background: ${(props) => props.theme.background};
     color: ${(props) => props.theme['base-text']};
     -webkit-font-smoothing: antialiased;
   }
