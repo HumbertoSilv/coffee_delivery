@@ -5,14 +5,13 @@ import {
   IntroContainer,
   IntroBackground,
   CoffeeListContainer,
-  CoffeeCard,
 } from './styles'
 import Coffee from '../../assets/Coffee.svg'
 import CoffeeIcon from '../../assets/CoffeeIcon.svg'
 import CartIcon from '../../assets/CartIcon.svg'
 import ClockIcon from '../../assets/ClockIcon.svg'
 import PackageIcon from '../../assets/PackageIcon.svg'
-import CoffeeCardImg from '../../assets/Coffee-01.svg'
+import { CoffeeCard } from '../../components/CoffeeCard'
 
 export const Home = () => {
   return (
@@ -50,22 +49,16 @@ export const Home = () => {
       <CoffeeListContainer>
         <h1>Nossos cafés</h1>
         <nav>
-          <CoffeeCard>
-            <img src={CoffeeCardImg} alt="Coffee image" />
-            <span className="tag">TRADICIONAL</span>
-            <h2>Expresso Tradicional</h2>
-            <p>O tradicional café feito com água quente e grãos moídos</p>
-            <footer>
-              R$
-              <span>9,90</span>
-              <div>
-                <button>-</button>
-                <span>0</span>
-                <button>+</button>
-                <div>cart</div>
-              </div>
-            </footer>
-          </CoffeeCard>
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
         </nav>
       </CoffeeListContainer>
     </HomeContainer>

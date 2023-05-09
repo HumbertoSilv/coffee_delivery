@@ -64,62 +64,6 @@ export const CoffeeListContainer = styled.section`
 
   nav {
     display: flex;
-  }
-`
-export const CoffeeCard = styled.div`
-  background-color: ${(props) => props.theme['base-card']};
-  width: 22%;
-  max-width: 40rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-top-right-radius: 45px;
-  border-bottom-left-radius: 45px;
-  border-top-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  padding: 1rem;
-  margin: 1.5rem;
-
-  img {
-    margin-top: calc(0px - 2.4rem - 6px);
-    width: 50%;
-  }
-
-  .tag {
-    padding: 0.5rem;
-    margin: 1.5rem;
-    background: ${(props) => props.theme['yellow-light']};
-    color: ${(props) => props.theme['yellow-dark']};
-    border-radius: 10px;
-    font-weight: 600;
-  }
-
-  h2 {
-    font-family: 'Baloo 2', cursive;
-    font-size: 2.1rem;
-    padding-bottom: 5px;
-  }
-
-  p {
-    padding-bottom: 40px;
-    text-align: center;
-    font-size: 1.4rem;
-    color: ${(props) => props.theme['base-label']};
-  }
-
-  footer {
-    display: flex;
-    gap: 5px;
-    padding: 0px 20px 10px;
-    font-size: 14px;
-
-    span {
-      /* padding: 0;
-      margin: 0;
-      background: white;
-      color: grey;
-      border-radius: 0px;
-      font-weight: 600; */
-    }
+    flex-wrap: wrap;
   }
 `
