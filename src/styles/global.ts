@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle`
 	  font-size: 62.5%;
     width: 75%;
     margin: auto;
-    background: ${(props) => props.theme.background};
+    /* background: ${(props) => props.theme.background}; */
   }
 
   body {

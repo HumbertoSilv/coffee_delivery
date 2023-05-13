@@ -6,6 +6,7 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   width: 100%;
   margin: 8.5rem auto;
+  background: ${(props) => props.theme.background};
 `
 export const InfoContainer = styled.div`
   width: 50%;
