@@ -1,12 +1,21 @@
-import { MapPinLine } from 'phosphor-react'
+import {
+  Bank,
+  CreditCard,
+  CurrencyDollar,
+  MapPinLine,
+  Money,
+} from 'phosphor-react'
 import {
   CheckoutContainer,
   Address,
   Payment,
   ComplementaryData,
   OrderContainer,
-  FormHeader,
+  AddressHeader,
+  PaymentHeader,
   Input,
+  PaymentSection,
+  PaymentMethod,
 } from './styles'
 
 export const Checkout = () => {
@@ -15,13 +24,13 @@ export const Checkout = () => {
       <ComplementaryData>
         <h1>Complete seu pedido</h1>
         <Address>
-          <FormHeader>
-            <MapPinLine size={23} weight="light" />
+          <AddressHeader>
+            <MapPinLine size={23} />
             <div>
               <span>Endereço de Entrega</span>
               <p>Informe o endereço onde deseja receber seu pedido</p>
             </div>
-          </FormHeader>
+          </AddressHeader>
           <form action="">
             <Input id="cep" placeholder="CEP" />
             <Input id="rua" placeholder="Rua" />
@@ -32,7 +41,31 @@ export const Checkout = () => {
             <Input id="uf" placeholder="UF" />
           </form>
         </Address>
-        <Payment>pagamento</Payment>
+        <Payment>
+          <PaymentHeader>
+            <CurrencyDollar size={23} />
+            <div>
+              <span>Pagamento</span>
+              <p>
+                O pagamento é feito na entrega. Escolha a forma que deseja pagar
+              </p>
+            </div>
+          </PaymentHeader>
+          <PaymentSection>
+            <PaymentMethod>
+              <CreditCard size={20} />
+              CARTÃO DE CRÉDITO
+            </PaymentMethod>
+            <PaymentMethod>
+              <Bank size={20} />
+              CARTÂO DE DÉBITO
+            </PaymentMethod>
+            <PaymentMethod>
+              <Money size={20} />
+              DINHEIRO
+            </PaymentMethod>
+          </PaymentSection>
+        </Payment>
       </ComplementaryData>
 
       <OrderContainer>

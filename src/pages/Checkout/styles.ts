@@ -8,10 +8,12 @@ export const CheckoutContainer = styled.div`
   margin: 60px auto;
 `
 export const ComplementaryData = styled.div`
+  display: grid;
+  gap: 2rem;
+
   h1 {
     font-family: 'Baloo 2', cursive;
     font-size: 1.8rem;
-    padding: 10px 0;
     color: ${(props) => props.theme['base-subtitle']};
   }
 `
@@ -65,9 +67,14 @@ export const Address = styled.div`
       border-radius: 5px;
       background: ${(props) => props.theme['base-input']};
     }
+
+    input:focus {
+      outline: 0;
+      box-shadow: 0 0 0 1px ${(props) => props.theme.yellow};
+    }
   }
 `
-export const FormHeader = styled.div`
+export const AddressHeader = styled.div`
   display: flex;
   padding: 3.5rem;
   gap: 0.8rem;
@@ -87,8 +94,65 @@ export const FormHeader = styled.div`
 `
 export const Input = styled.input``
 
+export const PaymentHeader = styled.div`
+  display: flex;
+  gap: 0.8rem;
+
+  svg {
+    color: ${(props) => props.theme.purple};
+  }
+
+  span {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+`
+
 export const Payment = styled.div`
+  border-radius: 10px;
+  padding: 3.5rem;
   background: ${(props) => props.theme.background};
+`
+
+export const PaymentSection = styled.div`
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  padding-top: 3.5rem;
+`
+
+export const PaymentMethod = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 30%;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+
+  background: ${(props) => props.theme['base-input']};
+
+  transition: color 0.3s, background-color 0.3s;
+
+  svg {
+    color: ${(props) => props.theme.purple};
+  }
+
+  &:hover {
+    background: ${(props) => props.theme['base-hover']};
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 1px ${(props) => props.theme.purple};
+    background: ${(props) => props.theme['purple-light']};
+  }
 `
 
 export const OrderContainer = styled.aside`
