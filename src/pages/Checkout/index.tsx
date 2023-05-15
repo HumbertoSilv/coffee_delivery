@@ -3,7 +3,10 @@ import {
   CreditCard,
   CurrencyDollar,
   MapPinLine,
+  Minus,
   Money,
+  Plus,
+  Trash,
 } from 'phosphor-react'
 import {
   CheckoutContainer,
@@ -16,7 +19,11 @@ import {
   Input,
   PaymentSection,
   PaymentMethod,
+  CartList,
+  Total,
+  CartItem,
 } from './styles'
+import coffeeImage from '../../assets/Coffee-01.svg'
 
 export const Checkout = () => {
   return (
@@ -69,13 +76,60 @@ export const Checkout = () => {
       </ComplementaryData>
 
       <OrderContainer>
-        <h1>cafes selecionados</h1>
-        <div>
-          <div></div>
+        <h1>Cafés selecionados</h1>
+        <CartList>
+          <CartItem>
+            <img id="img" src={coffeeImage} alt="" />
+            <h2 id="title">Expresso Tradicional</h2>
+            <div id="counter" className="counter">
+              <button>
+                <Minus size={15} weight="bold" />
+              </button>
+              <span>1</span>
+              <button>
+                <Plus size={15} weight="bold" />
+              </button>
+            </div>
+            <button id="button">
+              <Trash size={15} />
+              REMOVER
+            </button>
+            <span id="total">R$ 9,90</span>
+          </CartItem>
+          <CartItem>
+            <img id="img" src={coffeeImage} alt="" />
+            <h2 id="title">Expresso Tradicional</h2>
+            <div id="counter" className="counter">
+              <button>
+                <Minus size={15} weight="bold" />
+              </button>
+              <span>1</span>
+              <button>
+                <Plus size={15} weight="bold" />
+              </button>
+            </div>
+            <button id="button">
+              <Trash size={15} />
+              REMOVER
+            </button>
+            <span id="total">R$ 9,90</span>
+          </CartItem>
+        </CartList>
+        <Total>
           <div>
-            <button>CONFIRMAR PEDIDO</button>
+            <span>Total de itens</span>
+            <span>R$ 29,70</span>
           </div>
-        </div>
+          <div>
+            <span>Entrega </span>
+            <span>R$ 3,50</span>
+          </div>
+          <div>
+            <h3>Total </h3>
+            <span>R$ 33,20</span>
+          </div>
+          <button>CONFIRMAR PEDIDO</button>
+        </Total>
       </OrderContainer>
     </CheckoutContainer>
   )
