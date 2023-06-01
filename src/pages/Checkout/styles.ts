@@ -265,7 +265,7 @@ export const Total = styled.div`
   display: flex;
   gap: 2rem;
   flex-direction: column;
-  padding: 3rem;
+  padding: 0 3rem 3rem;
   background: ${(props) => props.theme.background};
 
   span {
@@ -274,10 +274,26 @@ export const Total = styled.div`
   }
 
   h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   div {
     display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    padding: 1.4rem;
+
+    color: ${(props) => props.theme.white};
+    background-color: ${(props) => props.theme.yellow};
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
   }
 `

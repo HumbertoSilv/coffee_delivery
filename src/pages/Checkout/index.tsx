@@ -24,8 +24,11 @@ import {
   CartItem,
 } from './styles'
 import coffeeImage from '../../assets/Coffee-01.svg'
+import { useNavigate } from 'react-router-dom'
 
 export const Checkout = () => {
+  const navigate = useNavigate()
+
   return (
     <CheckoutContainer>
       <ComplementaryData>
@@ -126,9 +129,9 @@ export const Checkout = () => {
           </div>
           <div>
             <h3>Total </h3>
-            <span>R$ 33,20</span>
+            <h3>R$ 33,20</h3>
           </div>
-          <button>CONFIRMAR PEDIDO</button>
+          <button onClick={() => navigate('/success')}>CONFIRMAR PEDIDO</button>
         </Total>
       </OrderContainer>
     </CheckoutContainer>
