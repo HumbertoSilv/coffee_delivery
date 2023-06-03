@@ -9,13 +9,13 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
 	  font-size: 62.5%;
-    width: 75%;
-    margin: auto;
   }
 
   body {
     color: ${(props) => props.theme['base-text']};
     -webkit-font-smoothing: antialiased;
+    width: 75%;
+    margin: auto;
   }
 
   body, input-security, textarea, button {

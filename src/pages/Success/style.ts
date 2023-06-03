@@ -5,6 +5,8 @@ export const SuccessPageContainer = styled.div`
   grid-template-columns: 45% 1fr;
   align-items: end;
   gap: 10rem;
+  position: relative;
+  top: 50px;
   width: 80%;
   margin: 90px auto;
 

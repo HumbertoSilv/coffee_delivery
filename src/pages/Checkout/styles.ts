@@ -4,6 +4,8 @@ export const CheckoutContainer = styled.div`
   display: grid;
   grid-template-columns: 60% 1fr;
   gap: 3rem;
+  position: relative;
+  top: 50px;
   width: 80%;
   margin: 60px auto;
 `

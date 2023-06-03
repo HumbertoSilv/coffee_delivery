@@ -4,10 +4,25 @@ import Background from '../../assets/Background.svg'
 export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin: 8.5rem auto;
-  background: ${(props) => props.theme.background};
+  max-width: 1430px;
+  background-color: ${(props) => props.theme.background};
 `
+
+export const IntroContainer = styled.main`
+  display: flex;
+  justify-content: space-between;
+  padding: 85px 10%;
+
+  background-image: url(${Background});
+  background-size: auto;
+
+  @media (max-width: 1400px) {
+    .introImg {
+      display: none;
+    }
+  }
+`
+
 export const InfoContainer = styled.div`
   width: 50%;
 
@@ -24,7 +39,11 @@ export const InfoContainer = styled.div`
     font-size: 2.2rem;
     margin: 1.5rem 0;
   }
+  @media (max-width: 1400px) {
+    width: 100%;
+  }
 `
+
 export const ItemsContainer = styled.div`
   margin-top: 5rem;
   display: flex;
@@ -34,24 +53,16 @@ export const ItemsContainer = styled.div`
     width: 50%;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 16px;
+    gap: 1rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
   }
 `
-export const IntroBackground = styled.div`
-  background-image: url(${Background});
-  background-size: contain;
-`
-export const IntroContainer = styled.main`
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin: 5rem auto;
-`
+
 export const CoffeeListContainer = styled.section`
   width: 80%;
-  margin: 0 auto;
+  margin: auto;
+  margin-bottom: 20rem;
 
   h1 {
     color: red;
@@ -66,5 +77,7 @@ export const CoffeeListContainer = styled.section`
   nav {
     display: flex;
     flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: center;
   }
 `

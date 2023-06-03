@@ -3,17 +3,33 @@ import { CoffeeCardContainer } from './styles'
 import { NavLink } from 'react-router-dom'
 import CoffeeCardImg from '../../assets/Coffee-01.svg'
 
-export const CoffeeCard = () => {
+interface CoffeeCardProps {
+  tags: string[]
+  name: string
+  price: number
+  description: string
+}
+
+export const CoffeeCard = ({
+  tags,
+  name,
+  price,
+  description,
+}: CoffeeCardProps) => {
   return (
     <CoffeeCardContainer>
       <img src={CoffeeCardImg} alt="Coffee image" />
-      <span className="tag">TRADICIONAL</span>
-      <h2>Expresso Tradicional</h2>
-      <p>O tradicional café feito com água quente e grãos moídos</p>
+      <div className="tags">
+        {tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
+      <h2>{name}</h2>
+      <p>{description}</p>
       <footer>
         <div className="price">
           R$
-          <span>9,90</span>
+          <span>{price}</span>
         </div>
         <div className="counter-cart-container">
           <div className="counter">
@@ -26,7 +42,7 @@ export const CoffeeCard = () => {
             </button>
           </div>
           <NavLink to="/checkout" title="cart">
-            <ShoppingCartSimple size={25} weight="fill" />
+            <ShoppingCartSimple size={20} weight="fill" />
           </NavLink>
         </div>
       </footer>

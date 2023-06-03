@@ -1,40 +1,39 @@
 import styled from 'styled-components'
 
 export const CoffeeCardContainer = styled.div`
-  background-color: ${(props) => props.theme['base-card']};
-  width: 22%;
-  max-width: 40rem;
   display: flex;
+  width: 255px;
   flex-direction: column;
   align-items: center;
-  border-top-right-radius: 45px;
-  border-bottom-left-radius: 45px;
-  border-top-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  margin: 1.5rem;
+  border-radius: 8px 40px;
+
+  background-color: ${(props) => props.theme['base-card']};
 
   img {
-    margin-top: calc(0px - 2.4rem - 6px);
-    width: 50%;
+    margin-top: calc(0px - 2.2rem - 6px);
   }
 
-  .tag {
-    padding: 0.5rem;
+  .tags {
     margin: 1.5rem;
-    background: ${(props) => props.theme['yellow-light']};
-    color: ${(props) => props.theme['yellow-dark']};
-    border-radius: 10px;
-    font-weight: 600;
+
+    span {
+      padding: 0.5rem 0.8rem;
+      margin: 0.3rem;
+      background: ${(props) => props.theme['yellow-light']};
+      color: ${(props) => props.theme['yellow-dark']};
+      border-radius: 10px;
+      font-weight: 600;
+    }
   }
 
   h2 {
     font-family: 'Baloo 2', cursive;
-    font-size: 2.1rem;
+    font-size: 2rem;
     padding-bottom: 5px;
   }
 
   p {
-    padding-bottom: 40px;
+    padding: 0px 20px 35px;
     text-align: center;
     font-size: 1.4rem;
     color: ${(props) => props.theme['base-label']};
@@ -44,18 +43,18 @@ export const CoffeeCardContainer = styled.div`
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    width: 85%;
-    padding: 0px 20px 10px;
-    font-size: 14px;
+    width: 80%;
+    padding: 0px 20px 20px;
+    font-size: 1.4rem;
 
     .price {
-      gap: 5px;
+      gap: 0.5rem;
       display: flex;
       align-items: baseline;
 
       span {
         font-family: 'Baloo 2', cursive;
-        font-size: 24px;
+        font-size: 2.4rem;
         font-weight: 800;
       }
     }
@@ -87,7 +86,7 @@ export const CoffeeCardContainer = styled.div`
     }
 
     a {
-      padding: 0.7rem;
+      padding: 0.7rem 1rem;
       border-radius: 0.5rem;
 
       background: ${(props) => props.theme['purple-dark']};
