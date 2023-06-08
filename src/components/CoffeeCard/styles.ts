@@ -85,16 +85,17 @@ export const CoffeeCardContainer = styled.div`
       }
     }
 
-    a {
+    .addCartButton {
       padding: 0.7rem 1rem;
       border-radius: 0.5rem;
+      border: none;
 
       background: ${(props) => props.theme['purple-dark']};
       color: ${(props) => props.theme.white};
       transition: color 0.3s, background-color 0.3s;
     }
 
-    a:hover {
+    .addCartButton:hover {
       background: ${(props) => props.theme.purple};
     }
   }

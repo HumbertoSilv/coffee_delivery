@@ -16,7 +16,7 @@ export const IntroContainer = styled.main`
   background-image: url(${Background});
   background-size: auto;
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1200px) {
     .introImg {
       display: none;
     }

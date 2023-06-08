@@ -1,9 +1,11 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
 import { CoffeeCardContainer } from './styles'
-import { NavLink } from 'react-router-dom'
 import CoffeeCardImg from '../../assets/Coffee-01.svg'
+import { useContext, useState } from 'react'
+import { ProductsContext } from '../../contexts/ProductsContext'
 
 interface CoffeeCardProps {
+  id: string
   tags: string[]
   name: string
   price: number
@@ -11,11 +13,17 @@ interface CoffeeCardProps {
 }
 
 export const CoffeeCard = ({
+  id,
   tags,
   name,
   price,
   description,
 }: CoffeeCardProps) => {
+  const { addToCart } = useContext(ProductsContext)
+  const [quantity, setQuantity] = useState<number>(1)
+
+  const disable = quantity === 0
+
   return (
     <CoffeeCardContainer>
       <img src={CoffeeCardImg} alt="Coffee image" />
@@ -29,21 +37,28 @@ export const CoffeeCard = ({
       <footer>
         <div className="price">
           R$
-          <span>{price}</span>
+          <span>{price.toFixed(2)}</span>
         </div>
         <div className="counter-cart-container">
           <div className="counter">
-            <button>
+            <button
+              disabled={disable}
+              onClick={() => setQuantity(quantity - 1)}
+            >
               <Minus size={15} weight="bold" />
             </button>
-            <span>1</span>
-            <button>
+            <span>{quantity}</span>
+            <button onClick={() => setQuantity(quantity + 1)}>
               <Plus size={15} weight="bold" />
             </button>
           </div>
-          <NavLink to="/checkout" title="cart">
+          <button
+            disabled={disable}
+            className="addCartButton"
+            onClick={() => addToCart(id, quantity)}
+          >
             <ShoppingCartSimple size={20} weight="fill" />
-          </NavLink>
+          </button>
         </div>
       </footer>
     </CoffeeCardContainer>
