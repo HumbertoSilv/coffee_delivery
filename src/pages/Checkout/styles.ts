@@ -2,15 +2,18 @@ import styled from 'styled-components'
 
 export const CheckoutContainer = styled.div`
   display: grid;
-  grid-template-columns: 60% 1fr;
+  grid-template-columns: 55% 40%;
+  justify-content: space-between;
   gap: 3rem;
-  position: relative;
-  top: 50px;
-  width: 80%;
-  margin: 60px auto;
+  padding: 2.5rem 10%;
+  height: 100vh;
+
+  background: ${(props) => props.theme.background};
 `
+
 export const ComplementaryData = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 
   h1 {
@@ -19,13 +22,14 @@ export const ComplementaryData = styled.div`
     color: ${(props) => props.theme['base-subtitle']};
   }
 `
+
 export const Address = styled.div`
-  border-radius: 10px;
-  background: ${(props) => props.theme.background};
+  border-radius: 1rem;
+  background: ${(props) => props.theme['base-card']};
 
   form {
     display: grid;
-    gap: 1rem;
+    gap: 2rem 1rem;
     padding: 0 3.5rem 3rem;
 
     #cep {
@@ -61,21 +65,10 @@ export const Address = styled.div`
       'rua rua rua'
       'num comp comp'
       'bai cid uf'
-      / 30% 1fr 50px;
-
-    input {
-      padding: 1.4rem;
-      border: none;
-      border-radius: 5px;
-      background: ${(props) => props.theme['base-input']};
-    }
-
-    input:focus {
-      outline: 0;
-      box-shadow: 0 0 0 1px ${(props) => props.theme.yellow};
-    }
+      / 25% 1fr 50px;
   }
 `
+
 export const AddressHeader = styled.div`
   display: flex;
   padding: 3.5rem;
@@ -94,7 +87,26 @@ export const AddressHeader = styled.div`
     line-height: 1.5;
   }
 `
-export const Input = styled.input``
+
+export const Input = styled.input`
+  padding: 1.4rem;
+  /* width: 100%; */
+  border: none;
+  border: 0.1rem solid ${(props) => props.theme['base-button']};
+  border-radius: 0.5rem;
+  background: ${(props) => props.theme['base-input']};
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem ${(props) => props.theme.yellow};
+  }
+`
+
+export const Payment = styled.div`
+  border-radius: 1rem;
+  padding: 3.5rem;
+  background: ${(props) => props.theme['base-card']};
+`
 
 export const PaymentHeader = styled.div`
   display: flex;
@@ -114,12 +126,6 @@ export const PaymentHeader = styled.div`
   }
 `
 
-export const Payment = styled.div`
-  border-radius: 10px;
-  padding: 3.5rem;
-  background: ${(props) => props.theme.background};
-`
-
 export const PaymentSection = styled.div`
   display: flex;
   gap: 1.5rem;
@@ -134,11 +140,12 @@ export const PaymentMethod = styled.button`
   width: 30%;
   padding: 1.5rem;
   font-size: 1.2rem;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   border: none;
   cursor: pointer;
 
-  background: ${(props) => props.theme['base-input']};
+  background: ${(props) => props.theme['base-button']};
+  color: ${(props) => props.theme['base-text']};
 
   transition: color 0.3s, background-color 0.3s;
 
@@ -168,99 +175,9 @@ export const OrderContainer = styled.aside`
 
 export const CartList = styled.div`
   padding: 3rem;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 40px;
+  border-top-right-radius: 4rem;
 
-  background: ${(props) => props.theme.background};
-`
-
-export const CartItem = styled.div`
-  display: grid;
-
-  column-gap: 1rem;
-
-  padding: 3rem 0;
-  border-bottom: 1px solid ${(props) => props.theme['base-button']};
-
-  h2 {
-    font-family: 'Roboto';
-    font-size: 16px;
-    font-weight: normal;
-  }
-
-  #img {
-    grid-area: img;
-    width: 80%;
-  }
-
-  #title {
-    grid-area: title;
-  }
-
-  #counter {
-    grid-area: counter;
-  }
-
-  #button {
-    grid-area: button;
-  }
-
-  #total {
-    grid-area: total;
-  }
-
-  grid-template:
-    'img title title total' 45%
-    'img counter button total' 50% / 20% 20% 1fr 1fr;
-
-  .counter {
-    display: flex;
-    font-size: 1.6rem;
-    padding: 0.9rem;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 5px;
-    background: ${(props) => props.theme['base-button']};
-  }
-
-  .counter button {
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    color: ${(props) => props.theme.purple};
-    transition: color 0.3s, background-color 0.3s;
-  }
-
-  #button {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.3rem;
-    border: none;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    color: ${(props) => props.theme['base-text']};
-    background: ${(props) => props.theme['base-button']};
-    transition: color 0.3s, background-color 0.3s;
-  }
-
-  #button:hover {
-    color: ${(props) => props.theme['purple-dark']};
-    background: ${(props) => props.theme['base-hover']};
-  }
-
-  svg {
-    color: ${(props) => props.theme.purple};
-  }
-
-  #total {
-    font-family: 'Roboto';
-    font-weight: 700;
-    font-size: 1.6rem;
-    color: ${(props) => props.theme['base-text']};
-    text-align: end;
-  }
+  background: ${(props) => props.theme['base-card']};
 `
 
 export const Total = styled.div`
@@ -268,7 +185,7 @@ export const Total = styled.div`
   gap: 2rem;
   flex-direction: column;
   padding: 0 3rem 3rem;
-  background: ${(props) => props.theme.background};
+  background: ${(props) => props.theme['base-card']};
 
   span {
     color: ${(props) => props.theme['base-text']};
@@ -290,12 +207,17 @@ export const Total = styled.div`
     font-size: 1.4rem;
     padding: 1.4rem;
 
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+
     color: ${(props) => props.theme.white};
     background-color: ${(props) => props.theme.yellow};
 
-    border: none;
-    border-radius: 6px;
+    transition: color 0.3s, background-color 0.3s;
 
-    cursor: pointer;
+    &:hover {
+      background: ${(props) => props.theme['yellow-dark']};
+    }
   }
 `

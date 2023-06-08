@@ -3,10 +3,7 @@ import {
   CreditCard,
   CurrencyDollar,
   MapPinLine,
-  Minus,
   Money,
-  Plus,
-  Trash,
 } from 'phosphor-react'
 import {
   CheckoutContainer,
@@ -21,12 +18,14 @@ import {
   PaymentMethod,
   CartList,
   Total,
-  CartItem,
 } from './styles'
-import coffeeImage from '../../assets/Coffee-01.svg'
 import { useNavigate } from 'react-router-dom'
+import { CartItem } from '../../components/CartItem'
+import { useContext } from 'react'
+import { ProductsContext } from '../../contexts/ProductsContext'
 
 export const Checkout = () => {
+  const { cart } = useContext(ProductsContext)
   const navigate = useNavigate()
 
   return (
@@ -81,42 +80,9 @@ export const Checkout = () => {
       <OrderContainer>
         <h1>Cafés selecionados</h1>
         <CartList>
-          <CartItem>
-            <img id="img" src={coffeeImage} alt="" />
-            <h2 id="title">Expresso Tradicional</h2>
-            <div id="counter" className="counter">
-              <button>
-                <Minus size={15} weight="bold" />
-              </button>
-              <span>1</span>
-              <button>
-                <Plus size={15} weight="bold" />
-              </button>
-            </div>
-            <button id="button">
-              <Trash size={15} />
-              REMOVER
-            </button>
-            <span id="total">R$ 9,90</span>
-          </CartItem>
-          <CartItem>
-            <img id="img" src={coffeeImage} alt="" />
-            <h2 id="title">Expresso Tradicional</h2>
-            <div id="counter" className="counter">
-              <button>
-                <Minus size={15} weight="bold" />
-              </button>
-              <span>1</span>
-              <button>
-                <Plus size={15} weight="bold" />
-              </button>
-            </div>
-            <button id="button">
-              <Trash size={15} />
-              REMOVER
-            </button>
-            <span id="total">R$ 9,90</span>
-          </CartItem>
+          {cart.map((item, index) => {
+            return <CartItem key={index} {...item} />
+          })}
         </CartList>
         <Total>
           <div>
