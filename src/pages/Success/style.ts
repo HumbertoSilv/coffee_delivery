@@ -5,10 +5,9 @@ export const SuccessPageContainer = styled.div`
   grid-template-columns: 45% 1fr;
   align-items: end;
   gap: 10rem;
-  position: relative;
-  top: 50px;
-  width: 80%;
-  margin: 90px auto;
+  padding: 5.5rem 10% 45rem;
+
+  background: ${(props) => props.theme.background};
 
   h1 {
     font-size: 3.2rem;
@@ -27,8 +26,13 @@ export const Info = styled.div`
   padding: 2rem;
   border: 1px solid transparent;
   border-radius: 6px 30px;
+  background: ${(props) => props.theme.background};
 
-  background: linear-gradient(white, white) padding-box,
+  background: linear-gradient(
+        ${(props) => props.theme.background},
+        ${(props) => props.theme.background}
+      )
+      padding-box,
     linear-gradient(
         90deg,
         rgba(219, 172, 44, 1) 0%,

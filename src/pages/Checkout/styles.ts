@@ -90,7 +90,6 @@ export const AddressHeader = styled.div`
 
 export const Input = styled.input`
   padding: 1.4rem;
-  /* width: 100%; */
   border: none;
   border: 0.1rem solid ${(props) => props.theme['base-button']};
   border-radius: 0.5rem;
@@ -136,9 +135,9 @@ export const PaymentSection = styled.div`
 export const PaymentMethod = styled.button`
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.3rem;
   width: 30%;
-  padding: 1.5rem;
+  padding: 1.3rem 1rem;
   font-size: 1.2rem;
   border-radius: 0.5rem;
   border: none;

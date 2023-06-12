@@ -79,7 +79,7 @@ export const CartItemContainer = styled.div`
     text-align: end;
   }
 
-  @media (max-width: 1520px) {
+  @media (max-width: 1545px) {
     h2,
     span {
       font-size: 1.4rem;

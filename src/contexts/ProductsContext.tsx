@@ -129,8 +129,6 @@ export const ProductsContextProvider = ({
   const [productsList, setProductsList] = useState<Product[]>(payload)
   const [cart, setCart] = useState<ProductOfCart[]>([])
 
-  console.log({ productsList, cart })
-
   const addToCart = (productId: string, quantity: number) => {
     const [product] = productsList.filter((item) => item.id === productId)
     const alreadyExists = cart.find((item) => item.id === productId)
@@ -162,7 +160,7 @@ export const ProductsContextProvider = ({
         if (item.id === productId) {
           return {
             ...item,
-            quantity: item.quantity - 1, // TODO: valores negativos
+            quantity: item.quantity === 0 ? 0 : item.quantity - 1,
           }
         }
         return item
@@ -171,8 +169,7 @@ export const ProductsContextProvider = ({
   }
 
   const removeItem = (productId: string) => {
-    const arrayWithoutItem = cart.filter(({ id }) => id !== productId)
-    setCart(arrayWithoutItem)
+    setCart((state) => state.filter(({ id }) => id !== productId))
   }
 
   return (

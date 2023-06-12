@@ -16,6 +16,10 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     width: 75%;
     margin: auto;
+
+    @media (max-width: 1435px) {
+      width: 100%;
+  }
   }
 
   body, input-security, textarea, button {
