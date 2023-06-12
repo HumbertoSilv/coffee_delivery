@@ -27,6 +27,10 @@ import { ProductsContext } from '../../contexts/ProductsContext'
 export const Checkout = () => {
   const { cart } = useContext(ProductsContext)
   const navigate = useNavigate()
+  const total = cart.reduce((acc, cur) => {
+    return acc + cur.quantity * cur.price
+  }, 0)
+  const deliveryFee = total > 0 ? 3.5 : 0
 
   return (
     <CheckoutContainer>
@@ -87,15 +91,15 @@ export const Checkout = () => {
         <Total>
           <div>
             <span>Total de itens</span>
-            <span>R$ 29,70</span>
+            <span>R$ {total.toFixed(2)}</span>
           </div>
           <div>
-            <span>Entrega </span>
-            <span>R$ 3,50</span>
+            <span>Entrega</span>
+            <span>R$ {deliveryFee.toFixed(2)}</span>
           </div>
           <div>
-            <h3>Total </h3>
-            <h3>R$ 33,20</h3>
+            <h3>Total</h3>
+            <h3>R$ {(deliveryFee + total).toFixed(2)}</h3>
           </div>
           <button onClick={() => navigate('/success')}>CONFIRMAR PEDIDO</button>
         </Total>

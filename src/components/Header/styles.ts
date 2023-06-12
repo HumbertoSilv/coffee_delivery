@@ -33,6 +33,7 @@ export const HeaderContainer = styled.header`
     }
 
     a {
+      position: relative;
       padding: 0.7rem;
       border-radius: 0.5rem;
 
@@ -40,4 +41,22 @@ export const HeaderContainer = styled.header`
       color: ${(props) => props.theme['yellow-dark']};
     }
   }
+`
+export const QuantityItems = styled.p`
+  position: absolute;
+  right: -0.8rem;
+  top: -0.8rem;
+
+  color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme['yellow-dark']};
+  border-radius: 50%;
+  line-height: 0;
+  height: 1.25rem;
+  width: 1.25rem;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
 `
