@@ -112,6 +112,7 @@ interface ProductOfCart {
 interface ProductsContextType {
   productsList: Product[]
   cart: ProductOfCart[]
+  total: number
   addToCart: (productId: string, quantity: number) => void
   subtractOfCart: (productId: string) => void
   removeItem: (productId: string) => void
@@ -172,9 +173,20 @@ export const ProductsContextProvider = ({
     setCart((state) => state.filter(({ id }) => id !== productId))
   }
 
+  const total = cart.reduce((acc, cur) => {
+    return acc + cur.quantity * cur.price
+  }, 0)
+
   return (
     <ProductsContext.Provider
-      value={{ productsList, cart, addToCart, subtractOfCart, removeItem }}
+      value={{
+        productsList,
+        cart,
+        total,
+        addToCart,
+        subtractOfCart,
+        removeItem,
+      }}
     >
       {children}
     </ProductsContext.Provider>

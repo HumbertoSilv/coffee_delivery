@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CheckoutContainer = styled.div`
+export const CheckoutContainer = styled.form`
   display: grid;
   grid-template-columns: 55% 40%;
   justify-content: space-between;
@@ -26,47 +26,6 @@ export const ComplementaryData = styled.div`
 export const Address = styled.div`
   border-radius: 1rem;
   background: ${(props) => props.theme['base-card']};
-
-  form {
-    display: grid;
-    gap: 2rem 1rem;
-    padding: 0 3.5rem 3rem;
-
-    #cep {
-      grid-area: cep;
-    }
-
-    #rua {
-      grid-area: rua;
-    }
-
-    #num {
-      grid-area: num;
-    }
-
-    #comp {
-      grid-area: comp;
-    }
-
-    #bai {
-      grid-area: bai;
-    }
-
-    #cid {
-      grid-area: cid;
-    }
-
-    #uf {
-      grid-area: uf;
-    }
-
-    grid-template:
-      'cep . .'
-      'rua rua rua'
-      'num comp comp'
-      'bai cid uf'
-      / 25% 1fr 50px;
-  }
 `
 
 export const AddressHeader = styled.div`
@@ -85,19 +44,6 @@ export const AddressHeader = styled.div`
   p {
     font-size: 1.4rem;
     line-height: 1.5;
-  }
-`
-
-export const Input = styled.input`
-  padding: 1.4rem;
-  border: none;
-  border: 0.1rem solid ${(props) => props.theme['base-button']};
-  border-radius: 0.5rem;
-  background: ${(props) => props.theme['base-input']};
-
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.1rem ${(props) => props.theme.yellow};
   }
 `
 
@@ -128,25 +74,30 @@ export const PaymentHeader = styled.div`
 export const PaymentSection = styled.div`
   display: flex;
   gap: 1.5rem;
-  justify-content: space-between;
   padding-top: 3.5rem;
 `
 
-export const PaymentMethod = styled.button`
+export const PaymentMethod = styled.label`
   display: flex;
-  align-items: center;
   gap: 1.3rem;
   width: 30%;
   padding: 1.3rem 1rem;
-  font-size: 1.2rem;
   border-radius: 0.5rem;
-  border: none;
   cursor: pointer;
 
   background: ${(props) => props.theme['base-button']};
-  color: ${(props) => props.theme['base-text']};
 
   transition: color 0.3s, background-color 0.3s;
+
+  input {
+    display: flex;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+
+    background: transparent;
+    color: ${(props) => props.theme['base-text']};
+  }
 
   svg {
     color: ${(props) => props.theme.purple};
@@ -156,7 +107,7 @@ export const PaymentMethod = styled.button`
     background: ${(props) => props.theme['base-hover']};
   }
 
-  &:focus {
+  &:focus-within {
     outline: 0;
     box-shadow: 0 0 0 1px ${(props) => props.theme.purple};
     background: ${(props) => props.theme['purple-light']};
