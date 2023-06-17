@@ -41,9 +41,10 @@ const formValidationSchema = zod.object({
 type formData = zod.infer<typeof formValidationSchema>
 
 export const Checkout = () => {
-  const { cart, total } = useContext(ProductsContext)
+  const { cart, total, clearCart } = useContext(ProductsContext)
   const { paymentMethod, createAddress, personPaymentMethod } =
     useContext(PersonContext)
+
   const navigate = useNavigate()
   const deliveryFee = total > 0 ? 3.5 : 0
   const enableSubmit = Boolean(!paymentMethod.length)
@@ -57,6 +58,7 @@ export const Checkout = () => {
   const handleCreateAddress = (data: IAddress) => {
     createAddress(data)
     reset()
+    clearCart()
     navigate('/success')
   }
 

@@ -11,6 +11,7 @@ export interface IAddress {
 }
 
 interface PersonContextType {
+  address: IAddress | undefined
   paymentMethod: string
   createAddress: (address: IAddress) => void
   personPaymentMethod: (paymentMethod: string) => void
@@ -27,11 +28,8 @@ export const PersonContextProvider = ({
 }: PersonContextProviderProps) => {
   const [address, setAddress] = useState<IAddress>()
   const [paymentMethod, setPaymentMethod] = useState<string>('')
-  console.log({ address, paymentMethod })
 
   const createAddress = (address: IAddress) => {
-    console.log('createAddress')
-
     setAddress(address)
   }
 
@@ -41,7 +39,7 @@ export const PersonContextProvider = ({
 
   return (
     <PersonContext.Provider
-      value={{ paymentMethod, createAddress, personPaymentMethod }}
+      value={{ address, paymentMethod, createAddress, personPaymentMethod }}
     >
       {children}
     </PersonContext.Provider>

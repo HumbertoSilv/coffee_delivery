@@ -3,8 +3,11 @@ import Illustration from '../../assets/Illustration.svg'
 import MoneyIcon from '../../assets/MoneyIcon.svg'
 import ClockIcon from '../../assets/ClockIcon.svg'
 import LocationIcon from '../../assets/LocationIcon.svg'
+import { useContext } from 'react'
+import { PersonContext } from '../../contexts/PersonContext'
 
 export const Success = () => {
+  const { address, paymentMethod } = useContext(PersonContext)
   return (
     <SuccessPageContainer>
       <div>
@@ -14,9 +17,14 @@ export const Success = () => {
           <div>
             <img src={LocationIcon} alt="Location Icon" />
             <span>
-              Entrega em <b>Rua João Daniel Martinelli, 102</b>
+              Entrega em{' '}
+              <b>
+                Rua {address?.street}, {address?.number}
+              </b>
             </span>
-            <span>Farrapos - Porto Alegre, RS</span>
+            <span>
+              {address?.neighborhood} - {address?.city}, {address?.uf}
+            </span>
           </div>
           <div>
             <img src={ClockIcon} alt="Clock Icon" />
@@ -29,7 +37,7 @@ export const Success = () => {
             <img src={MoneyIcon} alt="Money Icon" />
             <span>Pagamento na entrega</span>
             <span>
-              <b>Cartão de Crédito</b>
+              <b>{paymentMethod}</b>
             </span>
           </div>
         </Info>

@@ -116,6 +116,7 @@ interface ProductsContextType {
   addToCart: (productId: string, quantity: number) => void
   subtractOfCart: (productId: string) => void
   removeItem: (productId: string) => void
+  clearCart: () => void
 }
 
 interface ProductsContextProviderProps {
@@ -173,6 +174,10 @@ export const ProductsContextProvider = ({
     setCart((state) => state.filter(({ id }) => id !== productId))
   }
 
+  const clearCart = () => {
+    setCart([])
+  }
+
   const total = cart.reduce((acc, cur) => {
     return acc + cur.quantity * cur.price
   }, 0)
@@ -186,6 +191,7 @@ export const ProductsContextProvider = ({
         addToCart,
         subtractOfCart,
         removeItem,
+        clearCart,
       }}
     >
       {children}
